@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+  --primary-glow: rgba(0, 149, 255, 0.5);
+  --border-glow: rgba(0, 149, 255, 0.3);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:url(95c354d8-c9fd-4920-9f7d-6785e43d86bd.jfif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Arial', sans-serif;
+}
+
+.login-container {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px var(--border-glow),
+              inset 0 0 20px var(--border-glow);
+  animation: borderGlow 3s infinite alternate;
+  margin: 20px;
+}
+
+@keyframes borderGlow {
+  from {
+    box-shadow: 0 0 20px var(--border-glow),
+                inset 0 0 20px var(--border-glow);
+  }
+  to {
+    box-shadow: 0 0 30px var(--primary-glow),
+                inset 0 0 30px var(--primary-glow);
+  }
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+}
+
+.tab {
+  color: #fff;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: clamp(14px, 4vw, 18px);
+  position: relative;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tab.active {
+  opacity: 1;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #0095ff, #87ceeb);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+  font-size: clamp(12px, 3vw, 14px);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  color: #fff;
+  font-size: clamp(14px, 3vw, 16px);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 10px var(--border-glow);
+}
+
+.forgot-password {
+  text-align: right;
+  margin: -10px 0 20px;
+}
+
+.forgot-password a {
+  color: #0095ff;
+  text-decoration: none;
+  font-size: clamp(12px, 3vw, 14px);
+  transition: all 0.3s ease;
+}
+
+.forgot-password a:hover {
+  color: #87ceeb;
+  text-shadow: 0 0 8px rgba(0, 149, 255, 0.5);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: clamp(12px, 3vw, 14px);
+  background: linear-gradient(45deg, #0095ff, #87ceeb);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: clamp(14px, 3vw, 16px);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(45deg, #87ceeb, #0095ff);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 149, 255, 0.4);
+}
+
+#signupForm, #forgotForm {
+  display: none;
+}
+
+.reset-message {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: clamp(14px, 3vw, 16px);
+  line-height: 1.5;
+}
+
+.back-to-login {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.back-to-login a {
+  color: #0095ff;
+  text-decoration: none;
+  font-size: clamp(12px, 3vw, 14px);
+  transition: all 0.3s ease;
+}
+
+.back-to-login a:hover {
+  color: #87ceeb;
+  text-shadow: 0 0 8px rgba(0, 149, 255, 0.5);
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+  }
+  
+  .tabs {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-container {
+    padding: 15px;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="tabs">
+      <div class="tab active" onclick="switchForm('login')">Login</div>
+      <div class="tab" onclick="switchForm('signup')">Sign Up</div>
+    </div>
+    
+    <form id="loginForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password">
+      </div>
+      <div class="forgot-password">
+        <a href="#" onclick="switchForm('forgot')">Forgot Password?</a>
+      </div>
+      <button type="submit" class="submit-btn">Login</button>
+    </form>
+
+    <form id="signupForm">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" placeholder="Create a password">
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm your password">
+      </div>
+      <button type="submit" class="submit-btn">Sign Up</button>
+    </form>
+
+    <form id="forgotForm">
+      <div class="reset-message">
+        Enter your email address below and we'll send you instructions to reset your password.
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email">
+      </div>
+      <button type="submit" class="submit-btn">Send Reset Link</button>
+      <div class="back-to-login">
+        <a href="#" onclick="switchForm('login')">Back to Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function switchForm(form) {
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      const forgotForm = document.getElementById('forgotForm');
+      const tabs = document.querySelectorAll('.tab');
+      
+      // Hide all forms
+      loginForm.style.display = 'none';
+      signupForm.style.display = 'none';
+      forgotForm.style.display = 'none';
+      
+      // Remove active class from all tabs
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      // Show selected form and activate corresponding tab
+      switch(form) {
+        case 'login':
+          loginForm.style.display = 'block';
+          tabs[0].classList.add('active');
+          break;
+        case 'signup':
+          signupForm.style.display = 'block';
+          tabs[1].classList.add('active');
+          break;
+        case 'forgot':
+          forgotForm.style.display = 'block';
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
