@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: #111;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #222;
+            margin-bottom: 2rem;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0, 149, 255, 0.5);
+            border-color: rgba(0, 149, 255, 0.5);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .team-card:hover .profile-img {
+            border-color: #0095ff;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .team-card .role {
+            color: #efefef;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .team-card .description {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>Meet Our Team</h1>
+            <p>We are a diverse group of passionate individuals working together to create innovative solutions. Our team combines creativity, technical expertise, and industry experience to deliver exceptional results.</p>
+        </section>
+
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="/api/placeholder/150/150" alt="Person 1">
+                </div>
+                <h3>Person1</h3>
+                <div class="role">Financial Advisor</div>
+                <div class="description">
+                    Experienced financial advisor with expertise in investment strategies and portfolio management.
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Discord">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="/api/placeholder/150/150" alt="Person 2">
+                </div>
+                <h3>Person2</h3>
+                <div class="role">Technical Analyst</div>
+                <div class="description">
+                    Skilled technical analyst specializing in market trends and data-driven insights.
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Discord">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="/api/placeholder/150/150" alt="Person 3">
+                </div>
+                <h3>Person3</h3>
+                <div class="role">Marketing Specialist</div>
+                <div class="description">
+                    Creative marketing professional with a passion for digital strategies and brand development.
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Discord">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-card">
+                <div class="profile-img">
+                    <img src="/api/placeholder/150/150" alt="Person 4">
+                </div>
+                <h3>Person4</h3>
+                <div class="role">Fundamental analyst</div>
+                <div class="description">
+                    Skilled Fundamental analyst specializing in accountancy and historical-data insights.
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Discord">
+                        <i class="fab fa-discord social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin social-icon"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
